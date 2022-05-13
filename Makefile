@@ -30,7 +30,10 @@ vpath %.h $(sort $(dir $(EXTERNAL_HEADERS_SRC)))
 all: $(OUTPUT_DIR)/$(OUTPUT_FILE) $(EXTERNAL_HEADERS_DST) tests
 
 .PHONY: clean
-clean: $(BUILD_DIR) 
+ifndef BUILD_DIR
+$(error If BUILD_DIR is not set `/` will be deleted)
+endif
+clean: $(BUILD_DIR)
 	@rm -fr $^/*
 
 .PHONY: tests
