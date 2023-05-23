@@ -24,6 +24,8 @@ vpath %.c $(sort $(dir $(C_SOURCES)))
 vpath %.S $(sort $(dir $(ASM_SOURCES)))
 vpath %.h $(sort $(dir $(EXTERNAL_HEADERS_SRC)))
 
+# Obtain CPU count
+CPU_COUNT = `grep -c ^processor /proc/cpuinfo`
 
 # all must be above the $(OUTPUT_DIR)/$(OUTPUT_FILE) rule, otherwise it will be ignored
 .PHONY: all
