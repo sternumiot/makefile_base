@@ -10,7 +10,7 @@ OUTPUT_DIR = $(BUILD_DIR)/out
 
 C_SOURCES :=  $(shell find $(SRC_DIR) -type f -regex ".*\.c")
 ASM_SOURCES := $(shell find $(SRC_DIR)/ -type f -regex ".*\.S")
-HEADER_FILES := $(shell find $(HEADERS_DIR) -type f -regex ".*\.h")
+HEADER_FILES := $(shell find $(HEADER_DIRS) -type f -regex ".*\.h")
 
 
 EXTERNAL_HEADERS_DST = $(addprefix $(OUTPUT_DIR)/,$(notdir $(EXTERNAL_HEADERS_SRC)))
