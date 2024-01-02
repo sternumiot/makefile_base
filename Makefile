@@ -43,7 +43,7 @@ clean: $(BUILD_DIR)
 
 .PHONY: tests
 tests: $(OUTPUT_DIR)/$(OUTPUT_FILE)
-	@if [ -d "$(TESTS_SRC_DIR)" ]; then "${MAKE}" -j$(CPU_COUNT) -C $(TESTS_SRC_DIR) ; fi
+	@if [ -d "$(TESTS_SRC_DIR)" ]; then "${MAKE}" -j$(CPU_COUNT) -C $(TESTS_SRC_DIR) TOOLCHAIN=$(TOOLCHAIN) ; fi
 
 
 
