@@ -31,6 +31,9 @@ CPU_COUNT = `grep -c ^processor /proc/cpuinfo`
 .PHONY: all
 all: $(OUTPUT_DIR)/$(OUTPUT_FILE) $(EXTERNAL_HEADERS_DST) tests
 
+.PHONY: no-tests
+no-tests: $(OUTPUT_DIR)/$(OUTPUT_FILE) $(EXTERNAL_HEADERS_DST)
+
 .PHONY: clean
 ifndef BUILD_DIR
 $(error If BUILD_DIR is not set `/` will be deleted)
