@@ -43,9 +43,11 @@ clean: $(BUILD_DIR)
 
 .PHONY: tests
 tests: $(OUTPUT_DIR)/$(OUTPUT_FILE)
-	@if [ -d "$(TESTS_SRC_DIR)" ]; then "${MAKE}" -j$(CPU_COUNT) -C $(TESTS_SRC_DIR) TOOLCHAIN=$(TOOLCHAIN) ; fi
+	@if [ -d "$(TESTS_SRC_DIR)" ]; then "${MAKE}" -j$(CPU_COUNT) -C $(TESTS_SRC_DIR) TOOLCHAIN=$(TOOLCHAIN) tests ; fi
 
-
+.PHONY: run_tests
+run_tests: tests
+	@if [ -d "$(TESTS_SRC_DIR)" ]; then "${MAKE}" -j$(CPU_COUNT) -C $(TESTS_SRC_DIR) TOOLCHAIN=$(TOOLCHAIN) run_tests ; fi
 
 $(OUTPUT_DIR)/%.h: %.h
 	@mkdir -p $(@D)
