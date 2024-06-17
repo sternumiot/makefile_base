@@ -36,16 +36,11 @@ no-tests: $(OUTPUT_DIR)/$(OUTPUT_FILE) $(EXTERNAL_HEADERS_DST)
 
 .PHONY: clean
 ifndef BUILD_DIR
-$(error If BUILD_DIR is not set `/` will be deleted)
-endif
-
-# Check whether the BUILD_DIR variable is set at all
-ifeq ($(strip $(BUILD_DIR)),)
-$(error BUILD_DIR not set)
+$(error BUILD_DIR is undefined)
 endif
 
 clean: 
-	@rm -fr $(BUILD_DIR)/*
+	rm -fr ./$(BUILD_DIR)/*
 
 .PHONY: tests
 tests: $(OUTPUT_DIR)/$(OUTPUT_FILE)
